@@ -128,9 +128,11 @@ let App = {
     //   - a projectHash and a number (amount)
     // Return the transaction object
     async donate(projectHash, amount){
-        const amountBN = this.web3.utils.toBN(amount);
-        const valueWei = this.web3.utils.toWei(amountBN);
-        const donationTransaction = this.contract.donate(projectHash, { from: this.web3.eth.defaultAccount, value: valueWei });
+        // const amountBN = this.web3.utils.toBN(amount);
+        // const valueWei = this.web3.utils.toWei(amountBN);
+        // const donationTransaction = this.contract.donate(projectHash, { from: this.web3.eth.defaultAccount, value: valueWei });
+
+        const donationTransaction = this.contract.donate(projectHash, { from: this.web3.eth.defaultAccount, value: amount });
         return donationTransaction;
     },
 
